@@ -3,7 +3,7 @@
 .shinobi-bg{background:#333}
 .shinobi-bg-shade{position:absolute;height:100%;width:100%;background:rgba(0,0,0,0.5)}
 .panel-login {
-    background:#343434;
+    background:#ffffff;
     color:#ddd;
     margin-top:90px;
 	border-color: #444;
@@ -13,9 +13,8 @@
 }
 .panel-login>.panel-heading {
 	color: #00415d;
-	background-color: #333;
+	background-color: #ffffff;
 	color: #fff;
-	border-color: #444;
 	text-align:center;
 }
 .panel-login>.panel-heading a{
