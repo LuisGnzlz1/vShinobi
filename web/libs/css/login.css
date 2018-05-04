@@ -101,4 +101,17 @@
 	border-color: #1CA347;
 }
 
+.btn-vs{
+	color: #fff;
+	background-color: #27A1D3;
+	border-color: #27A1D3;
+}
+
+.btn-vs:hover,
+.btn-vs:focus {
+	color: #fff;
+	background-color: #218bbf;
+	border-color: #218bbf;
+}
+
 .monospace{font-family: monospace;}
