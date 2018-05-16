@@ -5,11 +5,18 @@
   ],
   "db": {
     "host": "127.0.0.1",
-    "user": "majesticflame",
-    "password": "",
+    "user": "visionstudio",
+    "password": "Passw0rd",
     "database": "ccio",
     "port":3306
   },
+
+  "ssl": {
+    "key": "/home/visionstudio/proyectos/vShinobi/key.pem",
+    "cert": "/home/visionstudio/proyectos/vShinobi/cert.pem",
+    "port": 8443
+  },
+
   "mail":{
     "service": "gmail",
     "auth": {
