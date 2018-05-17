@@ -18,7 +18,7 @@ TRUNCATE TABLE Users;
 TRUNCATE TABLE API;
 
 INSERT INTO `Users` (`ke`, `uid`, `auth`, `mail`, `pass`, `details`) VALUES
-	('2Df5hBE', 'XDf5hB3', 'ec49f05c1ddc7d818c61b3343c98cbc6', 'visionstudio@visionstudio.com', 'd41e98d1eafa6d6011d3a70f1a5b92f0', '{"days":"10000"}');
+	('2Df5hBE', 'XDf5hB3', 'ec49f05c1ddc7d818c61b3343c98cbc6', 'visionstudio', 'd41e98d1eafa6d6011d3a70f1a5b92f0', '{"days":"10000"}');
 
 INSERT INTO `API` VALUES ('2Df5hBE','XDf5hB3','0.0.0.0','33x1967qefD4C1L4KAxVtgDj0VYybl','{\"auth_socket\":\"1\",\"get_monitors\":\"1\",\"control_monitors\":\"1\",\"get_logs\":\"1\",\"watch_stream\":\"1\",\"watch_snapshot\":\"1\",\"watch_videos\":\"1\",\"delete_videos\":\"1\"}','2018-05-15 17:36:26');
 
