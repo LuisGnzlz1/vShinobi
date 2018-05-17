@@ -64,7 +64,7 @@ Para instalarlas ingresa en la terminal de linux lo siguiente:
     sudo apt update && sudo apt install ffmpeg libav-tools x264 x265
 
 ### Paso 3
-Instalar node. Node.js es una plataforma que te permite ejecutar codigo javascript del lado del servidor. Es necesario para poder ejecutar codigo javascript desde la terminal de linux, por ejemplo para hacer la traspilacion del codigo react. Igualmente se utiliza para un conjunto de paquetes globales de la plataforma.
+Instalar node. Node.js es una plataforma que te permite ejecutar codigo javascript del lado del servidor.
 
 Para instalar node ingresa en la terminal de linux:
 
@@ -186,41 +186,15 @@ Para ver nuestra IP:
 
     ifconfig
     
-Abrimos la siguiente direccion en nuestro navegador **https://MI_IP:8443** y accedemos con los siguientes credenciales:
+Abrimos la siguiente direccion en nuestro navegador **https://IP:8443** y accedemos con los siguientes credenciales:
+
+<pre><code><b>Usuario:</b> visionstudio
+<b>Password:</b> Passw0rd
+</code></pre>
+
+Para acceder al panel de administrador abrimos la siguiente direccion en nuestro navegador **https://IP:8443/super** y accedemos con los siguientes credenciales:
 
 
-	Usuario: visionstudio
-	Password: Passw0rd
-
-
-Para acceder al panel de administrador abrimos la siguiente direccion en nuestro navegador **https://MI_IP:8443/super** y accedemos con los siguientes credenciales:
-
-	Usuario: admin@visionstudio
-    Password: Passw0rd
-
-
-## Author
-
-Moe Alam
-
-Follow Shinobi on Twitter https://twitter.com/ShinobiCCTV
-
-## Links
-
-Documentation - http://shinobi.video/docs
-
-Donate - https://shinobi.video/docs/donate
-
-Tested Cameras and Systems - http://shinobi.video/docs/supported
-
-Features - http://shinobi.video/features
-
-Reddit (Forum) - https://www.reddit.com/r/ShinobiCCTV/
-
-YouTube (Tutorials) - https://www.youtube.com/channel/UCbgbBLTK-koTyjOmOxA9msQ
-
-Discord (Community Chat) - https://discordapp.com/invite/mdhmvuH
-
-Twitter (News) - https://twitter.com/ShinobiCCTV
-
-Facebook (News) - https://www.facebook.com/Shinobi-1223193167773738/?ref=bookmarks
+<pre><code><b>Usuario:</b> admin@visionstudio
+<b>Password:</b> Passw0rd
+</code></pre>
