@@ -1,131 +1,211 @@
-# Shinobi Pro 
-### (Creative Commons v4.0)
+# vShinobi 
 
-Shinobi is the Open Source CCTV Solution written in Node.JS. Designed with multiple account system, Streams by WebSocket, and Save to WebM. Shinobi can record IP Cameras and Local Cameras.
+Shinobi es la solución de CCTV de código abierto escrita en Node.JS. Diseñado con un sistema de cuentas múltiples, Streams por WebSocket y guardados a WebM. Shinobi puede grabar con cámaras IP y cámaras locales. Es usado en conjunto con la plataforma vOne para visualizar las camaras en streaming.  
 
-<a href="http://shinobi.video/gallery"><img src="https://github.com/ShinobiCCTV/Shinobi/blob/master/web/libs/img/demo.jpg?raw=true"></a>
+## Aspectos claves
 
-# Key Aspects
+Para obtener una lista actualizada de características, visite el sitio web oficial. http://shinobi.video/features
 
-For an updated list of features visit the official website. http://shinobi.video/features
-
-- Time-lapse Viewer (Watch a hours worth of footage in a few minutes)
-- 2-Factor Authentication
-- Defeats stream limit imposed by browsers
-  - With Base64 (Stream Type) and JPEG Mode (Option)
-- Records IP Cameras and Local Cameras
-- Streams by WebSocket, HLS (includes audio), and MJPEG
-- Save to WebM and MP4
-  - Can save Audio
-- Push Events - When a video is finished it will appear in the dashboard without a refresh
-- Region Motion Detection (Similar to ZoneMinder Zone Detection)
-  - Represented by a Motion Guage on each monitor
-- "No Motion" Notifications
-- 1 Process for Each Camera to do both, Recording and Streaming
-- Timeline for viewing Motion Events and Videos
-- Sub-Accounts with permissions
-  - Monitor Viewing
-  - Monitor Editing
-  - Video Deleting
-  - Separate API keys for sub account
-- Cron Filters can be set based on master account
-- Stream Analyzer built-in (FFprobe GUI)
-- Monitor Groups
-- Can snapshot images from stream directly
-- Lower Bandwith Mode (JPEG Mode)
-  - Snapshot (cgi-bin) must be enabled in Monitor Settings
-- Control Cameras from Interface
+- Visor de lapso de tiempo (Vea el valor de horas de filmación en unos minutos)
+- Autenticación de 2 factores
+- Derrota el límite de transmisión impuesto por los navegadores
+  - Con Base64 (tipo de secuencia) y modo JPEG (opción)
+- Graba cámaras IP y cámaras locales
+- Streams por WebSocket, HLS (incluye audio) y MJPEG
+- Guardar en WebM y MP4
+  - Puede guardar audio
+- Eventos de inserción: cuando finaliza un video, aparecerá en el panel sin una actualización
+- Detección de movimiento (similar a la detección de zona ZoneMinder)
+  - Representado por una Motion Guage en cada monitor
+- Notificaciones "sin movimiento"
+- 1 proceso para que cada cámara haga ambas cosas, grabación y transmisión
+- Línea de tiempo para ver eventos y videos de movimiento
+- Subcuentas con permisos
+  - Visualización del monitor
+  - Edición de monitores
+  - Eliminación de video
+  - Claves de API separadas para la cuenta secundaria
+- Los filtros Cron se pueden configurar en base a la cuenta maestra
+- Stream Analyzer incorporado (FFprobe GUI)
+- Monitorear grupos
+  - La instantánea (cgi-bin) debe estar habilitada en la configuración del monitor
+- Control de cámaras desde la interfaz
 - API
-  - Get videos
-  - Get monitors
-  - Change monitor modes : Disabled, Watch, Record
-  - Embedding streams
-- Dashboard Framework made with Google Material Design Lite, jQuery, and Bootstrap
+  - Obtener videos
+  - Obtener monitores
+  - Cambiar modos de monitor: deshabilitado, mirar, grabar
+  - Incrustar secuencias
+- Desarrollado con Google Material Design Lite, jQuery y Bootstrap
 
-## Asking for help
 
-Before asking questions it would nice if you read the docs :) http://shinobi.video
+## Instalación
 
-After doing so please head on over to the Discord community chat for support. https://discordapp.com/invite/mdhmvuH
+A continuación se muestran los pasos para instalar el aplicativo.
 
-The Issues section is only for bugs with the software. Comments and feature requests may be closed without comment. http://shinobi.video/docs/contribute
 
-Please be considerate of developer efforts. If you have simple questions, like "what does this button do?", please be sure to have read the docs entirely before asking. If you would like to skip reading the docs and ask away you can order a support package :) http://shinobi.video/support
+### Paso 1
 
-## Making Suggestions or Feature Requests
+Instalar gitel manejador de control de versiones el cual necesitas para poder bajar el código del repositorio remoto, así como para incluir nuevos cambios. 
 
-You can post suggestions on the Forum in the Suggestions category. Please do not treat this channel like a "demands" window. Developer efforts are limited. Much more than many alternatives.
+Para instalar git ingresa en la terminal de linux:
 
-when you have a suggestion please try and make the changes yourself then post a pull request to the `dev` branch. Then we can decide if it's a good change for Shinobi. If you don't know how to go about it and want to have me put it higher on my priority list you can order a support package :) Pretty Ferengi of me... but until we live in a world without money please support Shinobi :) Cheers!
+    sudo apt-get install git
 
-http://shinobi.video/support
 
-## Help make Shinobi the best Open Source CCTV Solution.
-Donate - http://shinobi.video/docs/donate
+> NOTA IMPORTANTE: ejecuta con sudo solo los comandos indicados. No loguarse como root para ejecutar los comandos. Utiliza siempre el usuario normal pero pidiendo permisos con sudo cuando sea necesario.
 
-Ordering a License, Paid Support, or anything from <a href="//camera.observer">here</a> will allow a lot more time to be spent on Shinobi.
+### Paso 2
+Instalar ffmpeg y otras librerias para poder grabar, convertir (transcodificar) y hacer streaming de audio y vídeo.
 
-Order Support - http://shinobi.video/support
 
-# Why make this?
+Para instalarlas ingresa en la terminal de linux lo siguiente:
 
-http://shinobi.video/why
+    sudo add-apt-repository ppa:jonathonf/ffmpeg-3
+    sudo apt update && sudo apt install ffmpeg libav-tools x264 x265
 
-# What others say
+### Paso 3
+Instalar node. Node.js es una plataforma que te permite ejecutar codigo javascript del lado del servidor. Es necesario para poder ejecutar codigo javascript desde la terminal de linux, por ejemplo para hacer la traspilacion del codigo react. Igualmente se utiliza para un conjunto de paquetes globales de la plataforma.
 
-> "After trying zoneminder without success (heavy unstable and slow) I passed to Shinobi that despite being young spins a thousand times better (I have a setup with 16 cameras recording in FHD to ~ 10fps on a pentium of ~ 2009 and I turn with load below 1.5)."
+Para instalar node ingresa en la terminal de linux:
 
-> *A Reddit user, /r/ItalyInformatica*
+    sudo apt update
+    sudo apt install curl gnupg2 -y
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    sudo apt install nodejs -y
+    sudo apt install npm -y
 
-&nbsp;
+Prueba:
 
-> "I would suggest Shinobi as a NVR. It's still in the early days but works a lot better than ZoneMinder for me. I'm able to record 16 cams at 1080p 15fps continously whith no load on server (Pentium E5500 3GB RAM) where zm crashed with 6 cams at 720p. Not to mention the better interface."
+    node -v
+    npm -v
 
-> *A Reddit user, /r/HomeNetworking*
+Cada uno debería retornarte la versión instalada.
 
-# How to Install and Run
+### Paso 4
+Instalar MariaDB. MariaDB es un sistema de gestión de bases de datos derivado de MySQL
 
-> FOR DOCKER USERS : Docker is not officially supported and is not recommended. The kitematic method is provided for those who wish to quickly test Shinobi. The Docker files included in the master and dev branches are maintained by the community. If you would like support with Docker please find a community member who maintains the Docker files or please refer to Docker's forum.
 
-#### Fast Install (The Ninja Way)
+Para instalar ingresa en la terminal de linux:
 
-1. Become `root` to use the installer and run Shinobi. Use one of the following to do so.
+    sudo apt install mariadb-server mariadb-client -y
+    
+    
+> NOTA: Durante la instalacion te pedira ingresar la contraseña para el usuario **root** del gestor de base de datos.
 
-    - Ubuntu 17.04, 17.10
-        - `sudo su`
-    - CentOS 7
-        - `su`
-    - MacOS 10.7(+)
-        - `su`
-2. Download and run the installer.
+Por defecto, MariaDB solo escucha las conexiones del localhost. Todo el acceso remoto al servidor está denegado por defecto. Si desea habilitar el acceso remoto para poder conectarse desde cualquier lado, ejecute los siguientes comandos:
 
-```
-bash <(curl -s https://raw.githubusercontent.com/ShinobiCCTV/Shinobi-Installer/master/shinobi-install.sh)
-```
+    sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 
-#### Elaborate Installs
+Edite la siguiente linea
 
-Installation Tutorials - http://shinobi.video/docs/start
+    bind-address = 127.0.0.1
+    
+    cambiarla a
+    
+    bind-address = 0.0.0.0
+    
+Guardar los cambios y reniciar el servicio
 
-Troubleshooting Guide - http://shinobi.video/docs/start#trouble-section
+    sudo service mysql restart
 
-# Author
+Ya con este cambio tendriamos al gestor escuchando desde cualquier IP.
+ 
+ > NOTA: Esta configuracion aplica si se desea tener separado la base de datos en un servidor y el aplicativo en otro. Si no es el caso y ambos estaran en el mismo servidor se puede omitir esta configuracion.
+ 
+
+### Paso 5
+
+Descargar vShinobi y configurar.
+
+#### Clona el repositorio: debes tener acceso con tu usaurio de github
+
+    mkdir /home/visionstudio/proyectos
+    cd /home/visionstudio/proyectos
+    git clone https://github.com/LuisGnzlz1/vShinobi.git
+    cd vShinobi
+    git checkout master
+    
+#### Otorgar los permisos respectivos a la carpeta
+
+    chmod -R 755 /home/visionstudio/proyectos/vShinobi
+    chmod -R o+w /home/visionstudio/proyectos/vShinobi
+
+
+#### Ingresar en el siguiente directorio
+
+    cd /home/visionstudio/proyectos/vShinobi/sql
+    
+#### Abrir MariaDB desde la terminal. Si la BD y el aplicativo esta en el mismo servidor ejecuta lo siguiente:
+
+    mysql -u root -p
+       
+ > NOTA: Si te pide ingresar contraseña, colocas la del usuario **root** que pusiste durante la instalacion del gestor.
+
+#### Procedemos a instalar la base de datos del vShinobi, corremos las siguientes lineas de comandos:
+
+    source ./user.sql
+    source ./framework.sql
+    source ./default_data.sql
+
+#### Salimos de la consola de MariaDB
+
+    exit
+      
+#### Copiamos el archivo de configuracion del sistema y lo renombramos con otro nombre:
+
+    cp /home/visionstudio/proyectos/vShinobi/conf.sample.json /home/visionstudio/proyectos/vShinobi/conf.json
+    
+#### Editamos el archivo de configuracion si nuestros parametros son distintos a los que trae incluido
+
+    nano /home/visionstudio/proyectos/vShinobi/conf.json
+    
+
+### Paso 6
+
+Instalamos las librerias de dependencia del proyecto.
+En la terminal de linux colocamos:
+
+    sudo npm install && npm install pm2 -g
+
+Copiamos y renombramos el siguiente el archivo:
+
+    cp /home/visionstudio/proyectos/vShinobi/super.sample.json /home/visionstudio/proyectos/vShinobi/super.json
+
+
+### Paso 7
+
+Iniciamos el vShinobi. 
+
+En terminal de linux ejecutamos lo siguiente:
+
+	cd /home/visionstudio/proyectos/vShinobi
+	pm2 start camera.js
+	pm2 start cron.js
+
+Para ver nuestra IP:
+
+    ifconfig
+    
+Abrimos la siguiente direccion en nuestro navegador **https://MI_IP:8443** y accedemos con los siguientes credenciales:
+
+
+	Usuario: visionstudio
+	Password: Passw0rd
+
+
+Para acceder al panel de administrador abrimos la siguiente direccion en nuestro navegador **https://MI_IP:8443/super** y accedemos con los siguientes credenciales:
+
+	Usuario: admin@visionstudio
+    Password: Passw0rd
+
+
+## Author
 
 Moe Alam
 
 Follow Shinobi on Twitter https://twitter.com/ShinobiCCTV
 
-Join the Community Chat
-
-<a title="Find me on Discord, Get an Invite" href="https://discordapp.com/invite/mdhmvuH"><img src="https://cdn-images-1.medium.com/max/115/1*OoXboCzk0gYvTNwNnV4S9A@2x.png"></a>
-
-# Support the Development
-
-Ordering a certificate or support package greatly boosts development. Please consider contributing :)
-
-http://shinobi.video/support
-
-# Links
+## Links
 
 Documentation - http://shinobi.video/docs
 
