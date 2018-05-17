@@ -55,6 +55,7 @@ Para instalar git ingresa en la terminal de linux:
 > NOTA IMPORTANTE: ejecuta con sudo solo los comandos indicados. No loguarse como root para ejecutar los comandos. Utiliza siempre el usuario normal pero pidiendo permisos con sudo cuando sea necesario.
 
 ### Paso 2
+
 Instalar ffmpeg y otras librerias para poder grabar, convertir (transcodificar) y hacer streaming de audio y vídeo.
 
 
@@ -64,6 +65,7 @@ Para instalarlas ingresa en la terminal de linux lo siguiente:
     sudo apt update && sudo apt install ffmpeg libav-tools x264 x265
 
 ### Paso 3
+
 Instalar node. Node.js es una plataforma que te permite ejecutar codigo javascript del lado del servidor.
 
 Para instalar node ingresa en la terminal de linux:
@@ -72,25 +74,32 @@ Para instalar node ingresa en la terminal de linux:
     sudo apt install curl gnupg2 -y
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     sudo apt install nodejs -y
-    sudo apt install npm -y
 
 Prueba:
 
     node -v
     npm -v
 
-Cada uno debería retornarte la versión instalada.
+Si no logras las ver la version de npm, puedes instalarlo de la siguiente manera
 
+    sudo apt install npm -y
+    
 ### Paso 4
-Instalar MariaDB. MariaDB es un sistema de gestión de bases de datos derivado de MySQL
 
+Instalar MariaDB. MariaDB es un sistema de gestión de bases de datos derivado de MySQL
 
 Para instalar ingresa en la terminal de linux:
 
     sudo apt install mariadb-server mariadb-client -y
     
+Ahora procedemos a realizar la configuracion segura del paquete:
+
+    sudo mysql_secure_installation
     
-> NOTA: Durante la instalacion te pedira ingresar la contraseña para el usuario **root** del gestor de base de datos.
+  > NOTA IMPORTANTE: 
+ Una vez ejecutado el comando nos preguntara por la contraseña de root de MariaDB que por ahora no tiene y damos enter. ¿Cuándo se le pregunte
+“Cambiar la contraseña de root?” Ingrese “Y” seguido de enter y luego coloque la contraseña de su preferencia. El resto de las preguntas son de su
+elección. Para instalaciones estándar, puede pulsa enter para los valores por estandar.
 
 Por defecto, MariaDB solo escucha las conexiones del localhost. Todo el acceso remoto al servidor está denegado por defecto. Si desea habilitar el acceso remoto para poder conectarse desde cualquier lado, ejecute los siguientes comandos:
 
@@ -130,16 +139,15 @@ Descargar vShinobi y configurar.
     chmod -R 755 /home/visionstudio/proyectos/vShinobi
     chmod -R o+w /home/visionstudio/proyectos/vShinobi
 
-
 #### Ingresar en el siguiente directorio
 
     cd /home/visionstudio/proyectos/vShinobi/sql
     
-#### Abrir MariaDB desde la terminal. Si la BD y el aplicativo esta en el mismo servidor ejecuta lo siguiente:
+#### Abrir MariaDB desde la terminal. Si la BD y el aplicativo esta en el mismo servidor ejecuta lo siguiente para entrar en la consola administrativa de MariaDB:
 
-    mysql -u root -p
+    sudo mysql -u root -p
        
- > NOTA: Si te pide ingresar contraseña, colocas la del usuario **root** que pusiste durante la instalacion del gestor.
+ > NOTA: Si te pide ingresar contraseña, colocas la del usuario **root** que pusiste durante la configuracion de seguridad del MariaDB.
 
 #### Procedemos a instalar la base de datos del vShinobi, corremos las siguientes lineas de comandos:
 
@@ -163,14 +171,16 @@ Descargar vShinobi y configurar.
 ### Paso 6
 
 Instalamos las librerias de dependencia del proyecto.
-En la terminal de linux colocamos:
 
-    sudo npm install && npm install pm2 -g
+En la terminal de linux ingresamos como **root** y ejecutamos lo siguiente:
+
+    sudo su
+    cd /home/visionstudio/proyectos/vShinobi
+    npm install && npm install pm2 -g
 
 Copiamos y renombramos el siguiente el archivo:
 
     cp /home/visionstudio/proyectos/vShinobi/super.sample.json /home/visionstudio/proyectos/vShinobi/super.json
-
 
 ### Paso 7
 
