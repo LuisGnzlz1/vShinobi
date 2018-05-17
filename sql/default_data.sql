@@ -4,6 +4,7 @@
 -- Server OS:                    Linux
 -- HeidiSQL Version:             9.3.0.4984
 -- --------------------------------------------------------
+USE ccio;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8mb4 */;
@@ -11,8 +12,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 -- Dumping data for table ccio.Users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-
-USE ccio;
 
 TRUNCATE TABLE Users;
 TRUNCATE TABLE API;
